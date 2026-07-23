@@ -108,3 +108,13 @@ Step 3: &quot;<u>0</u>-1&quot; (&quot;0&quot; is read in; reading stops because 
 	<li><code>0 &lt;= s.length &lt;= 200</code></li>
 	<li><code>s</code> consists of English letters (lower-case and upper-case), digits (<code>0-9</code>), <code>&#39; &#39;</code>, <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code>, and <code>&#39;.&#39;</code>.</li>
 </ul>
+
+
+---
+### Retrospective Notes
+#### Using Regular Expression makes code much simpler
+`/^[+-]?\d/`
+- `^`— anchors match to the very start of the string (since the string already trimmed, this is the position right after leading whitespace has been removed)
+- `[+-]?`— matches a `+` or `-` if present, and matches nothing if absent (optional, 0 or 1 occurence)
+- `\d+`—matches one or more consecutive digits only(matching stops automatically as soon as a non-digit character is encountered)
+The key point here is that there's no `$` (end-of-string anchor) in the pattern. The regex starts matching from `^`(the beginning), greedily consumes as many digits as `\d+` can match, and stops as soon as it hits a non-digit character. There's no requirement that the entire string be numeric. The regex simply extracts the leading numeric portion.
