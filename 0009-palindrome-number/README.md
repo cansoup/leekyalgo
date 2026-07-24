@@ -34,3 +34,8 @@
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it without converting the integer to a string?
+
+---
+### Retrospective Notes
+#### Confused at the very first trial
+On my first submission, I mixed this up with a prime-checking problem and mistakenly iterated up to the **square root** of the number's string length, when the correct approach required iterating up to **half** the string's length instead. That mistake caused my initial submission to fail.
